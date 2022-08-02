@@ -1,4 +1,4 @@
-import { ISearchResItems, ISearchResult } from "../reducer/reducer.types";
+import { ISearchResItems, ISearchResult, seaarchInputs } from "../reducer/reducer.types";
 import { actionsType } from "./actions";
 
 export interface IActionsType {
@@ -7,13 +7,8 @@ export interface IActionsType {
     UPDATE_SELECTED_IMAGE: string;
     UPDATE_SUCCESS_TOAST: string;
     UPDATE_GALLERY: string;
-    LOADING: string;
     SHOW_ERROR: string;
-}
-
-export interface UpdateLoaderdispatchProps {
-  type: typeof actionsType.LOADING;
-  loading: boolean;
+    UPDATE_INPUT: string;
 }
 
 export interface UpdateErrordispatchProps {
@@ -28,10 +23,14 @@ export interface UpdateSearchResultsdispatchProps {
 
 export interface UpdateSelectImagedispatchProps {
   type: typeof actionsType.UPDATE_SELECTED_IMAGE;
-  selectedResult: ISearchResItems;
+  selectedResult: ISearchResItems | null;
 }
 
 export interface UpdateGalleryispatchProps {
   type: typeof actionsType.UPDATE_GALLERY;
   gallery: Array<string>;
+}
+export interface UpdateInputdispatchProps {
+  type: typeof actionsType.UPDATE_INPUT;
+  inputs: seaarchInputs;
 }

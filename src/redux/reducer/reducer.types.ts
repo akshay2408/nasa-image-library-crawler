@@ -27,19 +27,25 @@ export interface ISearchResult {
     metadata: object;
 }
 
+export interface seaarchInputs {
+    search: string;
+    sYear: string;
+    eYear: string;
+}
+
 export interface InitialStateType {
     searchResult: ISearchResult | null;
     selectedResult: ISearchResItems | null;
     gallery: Array<string> | null;
-    loading: boolean;
     error: string;
+    inputs: seaarchInputs;
 }
 
 export interface Action {
     type: string;
     searchResult: ISearchResult;
-    selectedResult: ISearchResItems;
+    selectedResult: ISearchResItems | null;
     gallery: Array<string>;
-    loading: boolean;
     error: string;
+    inputs: seaarchInputs;
 };

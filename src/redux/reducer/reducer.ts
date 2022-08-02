@@ -6,8 +6,8 @@ const initialState: InitialStateType = {
     searchResult: null,
     selectedResult: null,
     gallery: null,
-    loading: false,
-    error: ''
+    error: '',
+    inputs: { search: '', sYear: '', eYear: '' },
 }
 
 const reducer = (state: InitialStateType = initialState, action: Action) => {
@@ -16,12 +16,12 @@ const reducer = (state: InitialStateType = initialState, action: Action) => {
             return { ...state, searchResult: action.searchResult }
         case actionsType.UPDATE_SELECTED_IMAGE:
             return { ...state, selectedResult: action.selectedResult }
-        case actionsType.LOADING:
-            return { ...state, loading: action.loading }
         case actionsType.UPDATE_GALLERY:
             return { ...state, gallery: action.gallery }
         case actionsType.SHOW_ERROR:
             return { ...state, error: action.error }
+        case actionsType.UPDATE_INPUT:
+            return { ...state, inputs: action.inputs }
         default:
             return state;
     }
